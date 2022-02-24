@@ -1,4 +1,4 @@
-name: CodeQL CLI All Modules
+name: CodeQL CLI Sub-Module
 # https://docs.github.com/en/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
 
 on:
@@ -61,7 +61,7 @@ jobs:
     - name: Upload CodeQL SARIF Results
       run: |
           ${{ env.CODEQL_BINARY }} github upload-results \
-            --repository=${{ matrix.sourceroot }} \
+            --repository=${{ matrix.repo }} \
             --ref=$GITHUB_REF \
             --commit=$GITHUB_SHA \
             --sarif=${{ env.CODEQL_SARIF }}/${{ matrix.language }}-results.sarif \
