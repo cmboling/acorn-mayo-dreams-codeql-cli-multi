@@ -26,6 +26,7 @@ jobs:
       matrix:
         language: ['java', 'javascript' ]
         sourceroot: ['dir1', 'dir2']
+        repo: ['org1/repo1', 'org1/repo2']
 
     steps:
     - name: Checkout Repository
@@ -60,7 +61,7 @@ jobs:
     - name: Upload CodeQL SARIF Results
       run: |
           ${{ env.CODEQL_BINARY }} github upload-results \
-            --repository=$GITHUB_REPOSITORY \
+            --repository=${{ matrix.sourceroot }} \
             --ref=$GITHUB_REF \
             --commit=$GITHUB_SHA \
             --sarif=${{ env.CODEQL_SARIF }}/${{ matrix.language }}-results.sarif \
