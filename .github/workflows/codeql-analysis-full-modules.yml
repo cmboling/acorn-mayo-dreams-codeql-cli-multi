@@ -25,8 +25,8 @@ jobs:
     strategy:
       matrix:
         language: ['java', 'javascript' ]
-        sourceroot: ['dir1', 'dir2']
-        repo: ['org1/repo1', 'org1/repo2']
+        sourceroot: ['dir1', 'dir2', '.']
+        repo: ['org1/repo1', 'org1/repo2', 'org1/thisrepo']
 
     steps:
     - name: Checkout Repository
